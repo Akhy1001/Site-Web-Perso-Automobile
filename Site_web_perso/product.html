@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails Véhicule | Prestige Motors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Syne:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏎️</text></svg>">
+</head>
+
+<body>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">Prestige<span class="dot">.</span></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Retour Accueil</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="compare.html" class="nav__link">Comparateur</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link button-link">Nous contacter</a>
+                    </li>
+                </ul>
+                <div class="nav__close" id="nav-close">⨯</div>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">☰</div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="section product-detail" id="product-detail">
+            <div class="container grid product__container">
+                <!-- Image Dynamique -->
+                <div class="product__img-box">
+                    <img id="product-img" src="" alt="Véhicule de prestige" class="product__img">
+                </div>
+
+                <!-- Info Dynamique -->
+                <div class="product__data">
+                    <span class="section__subtitle" style="text-align: left; margin-bottom: 0.5rem;">Collection
+                        Exclusive</span>
+                    <h1 class="product__title" id="product-title">Chargement...</h1>
+                    <p class="product__price" id="product-price">-- €</p>
+
+                    <p class="product__description" id="product-desc">
+                        Informations en cours de chargement...
+                    </p>
+
+                    <div class="product__specs">
+                        <div class="spec__item">
+                            <span class="spec__label">Moteur</span>
+                            <span class="spec__value" id="spec-engine">--</span>
+                        </div>
+                        <div class="spec__item">
+                            <span class="spec__label">Puissance</span>
+                            <span class="spec__value" id="spec-power">--</span>
+                        </div>
+                        <div class="spec__item">
+                            <span class="spec__label">0-100 km/h</span>
+                            <span class="spec__value" id="spec-accel">--</span>
+                        </div>
+                        <div class="spec__item">
+                            <span class="spec__label">Année</span>
+                            <span class="spec__value" id="spec-year">--</span>
+                        </div>
+                    </div>
+
+                    <div class="product__actions">
+                        <a href="#contact" class="button button--flex">
+                            Réserver ce véhicule
+                        </a>
+                        <a href="index.html#collection" class="button button--ghost">
+                            Retour à la collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION (Simplified) -->
+        <section class="contact section" id="contact" style="padding-top: 2rem;">
+            <h2 class="section__title section__title-center">Intéressé ?</h2>
+            <div class="contact__container container grid">
+                <div class="contact__content" style="margin: 0 auto; text-align: center;">
+                    <p class="contact__description" style="margin-bottom: 2rem; color: var(--text-color-light);">
+                        Nos conseillers sont à votre disposition pour organiser une présentation privée.
+                    </p>
+                    <a href="mailto:contact@prestigemotors.com" class="button">Contacter le service commercial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <h1 class="footer__title">Prestige Motors</h1>
+            <span class="footer__copy">&#169; 2025 Prestige Motors. All luxury rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
