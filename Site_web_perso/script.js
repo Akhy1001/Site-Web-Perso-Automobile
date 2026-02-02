@@ -144,7 +144,7 @@ const sr = new IntersectionObserver((entries) => {
     });
 });
 
-const revealElements = document.querySelectorAll('.reveal');
+const revealElements = document.querySelectorAll('.reveal, .reveal-right');
 revealElements.forEach((el) => sr.observe(el));
 
 
