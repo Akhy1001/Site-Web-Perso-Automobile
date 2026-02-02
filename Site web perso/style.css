@@ -5,38 +5,28 @@
 :root {
     --header-height: 4.5rem;
 
-    /* PALETTE COUPLE: CATALOG & AUCTION */
-    --hue: 45;
-    /* Gold/Beige base */
-
-    /* Primary Colors */
-    --first-color: #D4AF37;
-    /* Metallic Gold */
-    --first-color-alt: #AA8C2C;
+    /* COLORS */
+    --hue: 0;
+    /* RED HUE */
+    --first-color: hsl(var(--hue), 60%, 50%);
+    /* Gold */
+    --first-color-alt: hsl(var(--hue), 65%, 45%);
     /* Darker Gold */
+    --title-color: hsl(var(--hue), 8%, 95%);
+    --text-color: hsl(var(--hue), 0%, 80%);
+    /* More Grey/Silver */
+    --text-color-light: hsl(var(--hue), 0%, 60%);
+    --body-color: hsl(var(--hue), 5%, 8%);
+    /* Very Dark Grey/Black */
+    --container-color: hsl(var(--hue), 5%, 12%);
+    /* Slightly lighter black */
 
-    /* Text Colors */
-    --title-color: #1A1A1A;
-    /* Almost Black (Charcoal) */
-    --text-color: #4A4A4A;
-    /* Dark Grey */
-    --text-color-light: #757575;
-    /* Medium Grey */
+    /* GRADIENTS */
+    --gradient-primary: linear-gradient(120deg, var(--first-color), hsl(350, 70%, 30%));
 
-    /* Background Colors */
-    --body-color: #FDFBF7;
-    /* Cream / Off-White Paper */
-    --container-color: #FFFFFF;
-    /* Pure White */
-
-    /* GRADIENTS (Subtle or remove) */
-    --gradient-primary: linear-gradient(135deg, #1A1A1A 0%, #333333 100%);
-    /* Elegant Dark for buttons */
-
-    /* TYPOGRAPHY */
-    --body-font: 'Lato', sans-serif;
-    --title-font: 'Playfair Display', serif;
-
+    /* FONT AND TYPOGRAPHY */
+    --body-font: 'Outfit', sans-serif;
+    --title-font: 'Syne', sans-serif;
     --big-font-size: 3.5rem;
     --h1-font-size: 2.25rem;
     --h2-font-size: 1.5rem;
@@ -46,8 +36,7 @@
     --smaller-font-size: 0.813rem;
 
     /* FONT WEIGHT */
-    --font-medium: 400;
-    /* Regular for serif elegance */
+    --font-medium: 500;
     --font-semi-bold: 600;
     --font-bold: 700;
 
@@ -98,6 +87,7 @@ body {
     background-color: var(--body-color);
     color: var(--text-color);
     transition: .4s;
+    cursor: none;
 }
 
 h1,
@@ -113,7 +103,6 @@ h4 {
 
 h1.home__title {
     font-family: var(--title-font);
-    font-weight: 700;
 }
 
 ul {
@@ -123,6 +112,7 @@ ul {
 a {
     text-decoration: none;
     text-decoration: none;
+    cursor: none;
 }
 
 img {
@@ -136,7 +126,7 @@ textarea {
     font: inherit;
     border: none;
     outline: none;
-    cursor: pointer;
+    cursor: none;
 }
 
 
@@ -188,11 +178,10 @@ textarea {
     bottom: 0;
     left: 0;
     z-index: var(--z-fixed);
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(10, 10, 10, 0.9);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-top: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
 }
 
 /* NAV */
@@ -333,16 +322,44 @@ textarea {
     position: relative;
     width: 100%;
     /* Wider for car feel */
-    height: 400px;
-    /* Taller for hero focus */
+    height: 250px;
     margin: 0 auto;
-    background: transparent;
-    /* Clean background */
 }
 
-/* Abstract shapes removed for classic style */
 .abstract-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    /* Enhanced blur for luxury glow */
+    z-index: -1;
+}
+
+.shape-1 {
+    width: 150px;
+    height: 150px;
+    background: var(--first-color);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    animation: pulseGlow 4s infinite alternate;
+}
+
+.shape-2 {
     display: none;
+    /* Simplify to one glow for elegance */
+}
+
+@keyframes pulseGlow {
+    0% {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
 }
 
 .scroll-down {
@@ -353,10 +370,10 @@ textarea {
 .button {
     display: inline-flex;
     align-items: center;
-    background: var(--title-color);
-    /* Dark button */
-    color: #FFF;
-    padding: 1rem 2rem;
+    background: var(--gradient-primary);
+    color: #000;
+    /* Dark text on gold for contrast */
+    padding: 1rem 1.75rem;
     border-radius: 0;
     /* Square corners for prestige look */
     font-weight: var(--font-semi-bold);
@@ -497,11 +514,10 @@ textarea {
 /* PORTFOLIO -> COLLECTION */
 .portfolio__card {
     background-color: var(--container-color);
-    padding: 0;
-    border-radius: 0;
+    padding: 1.25rem;
+    border-radius: 1rem;
     transition: .3s;
-    transition: .3s;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
 }
 
@@ -511,16 +527,13 @@ textarea {
 }
 
 .portfolio__img-wrapper {
-    height: 220px;
-    /* More height for cars */
-    background: #F5F5F5;
-    /* Light grey instead of dark */
-    border-radius: 0;
+    height: 200px;
+    background: #2a2a32;
+    border-radius: .5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0;
-    /* flush with text */
+    margin-bottom: var(--mb-1);
     position: relative;
 }
 
@@ -963,6 +976,19 @@ textarea {
     border-radius: 50%;
     z-index: 9999;
     pointer-events: none;
+}
+
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    background-color: var(--first-color);
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--text-color-light);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
 .cursor-dot {
@@ -1513,9 +1539,6 @@ body:hover .cursor-outline {
 .footer__title {
     text-align: center;
     margin-bottom: var(--mb-2);
-    font-family: var(--title-font);
-    font-size: 2rem;
-    color: var(--title-color);
 }
 
 .footer__list {
