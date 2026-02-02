@@ -56,6 +56,49 @@
     --z-modal: 1000;
 }
 
+/* Light Theme Variables */
+body.light-theme {
+    --title-color: hsl(var(--hue), 8%, 15%);
+    --text-color: hsl(var(--hue), 8%, 35%);
+    --text-color-light: hsl(var(--hue), 8%, 55%);
+    --body-color: hsl(var(--hue), 10%, 98%);
+    --container-color: #fff;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .header {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .nav__logo .dot,
+body.light-theme .nav__link.active-link,
+body.light-theme .home__social-icon:hover {
+    color: var(--first-color-alt);
+}
+
+body.light-theme .button {
+    color: #fff;
+}
+
+body.light-theme .portfolio__card,
+body.light-theme .contact__card,
+body.light-theme .skills__content {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .portfolio__img-wrapper {
+    background: #f0f0f0;
+}
+
+body.light-theme .contact__form-input {
+    background: #f9f9f9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--title-color);
+}
+
+
 /* RESPONSIVE TYPOGRAPHY */
 @media screen and (min-width: 968px) {
     :root {
@@ -138,6 +181,19 @@ textarea {
     padding: 4.5rem 0 2rem;
 }
 
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease-out;
+}
+
+.reveal.active-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 .section__title {
     font-size: var(--h1-font-size);
     margin-bottom: var(--mb-3);
@@ -218,6 +274,19 @@ textarea {
     font-size: 1.2rem;
     cursor: pointer;
 }
+
+.change-theme {
+    font-size: 1.25rem;
+    color: var(--title-color);
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.change-theme:hover {
+    color: var(--first-color);
+}
+
 
 .nav__menu {
     position: fixed;
@@ -365,6 +434,40 @@ textarea {
 .scroll-down {
     display: none;
 }
+
+/* SCROLL UP */
+.scrollup {
+    position: fixed;
+    right: 1rem;
+    bottom: -20%;
+    background-color: var(--first-color);
+    opacity: .8;
+    padding: 0 0.3rem;
+    border-radius: .4rem;
+    z-index: var(--z-tooltip);
+    transition: .4s;
+    display: flex;
+    /* Centering content */
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+}
+
+.scrollup:hover {
+    background-color: var(--first-color-alt);
+}
+
+.scrollup__icon {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* Show Scroll */
+.show-scroll {
+    bottom: 5rem;
+}
+
 
 /* BUTTONS */
 .button {

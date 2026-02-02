@@ -5,7 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prestige Motors | L'Exception Automobile</title>
-    <meta name="description" content="Concessionnaire de véhicules de luxe et de collection.">
+    <meta name="description"
+        content="Concessionnaire de véhicules de luxe et de collection. Découvrez notre sélection exclusive : Porsche, Ferrari, Lamborghini, Bugatti.">
+    <meta name="keywords" content="voiture de luxe, supercar, prestige, collection, porsche, ferrari, paris">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.prestigemotors.com/">
+    <meta property="og:title" content="Prestige Motors | L'Exception Automobile">
+    <meta property="og:description"
+        content="Concessionnaire de véhicules de luxe et de collection. Une sélection exclusive pour une clientèle exigeante.">
+    <meta property="og:image" content="https://www.prestigemotors.com/assets/img/porsche.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.prestigemotors.com/">
+    <meta property="twitter:title" content="Prestige Motors | L'Exception Automobile">
+    <meta property="twitter:description" content="Concessionnaire de véhicules de luxe et de collection.">
+    <meta property="twitter:image" content="https://www.prestigemotors.com/assets/img/porsche.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,6 +32,48 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏎️</text></svg>">
+
+    <!-- JSON-LD Structure -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoDealer",
+      "name": "Prestige Motors",
+      "image": "https://www.prestigemotors.com/assets/img/porsche.png",
+      "@id": "https://www.prestigemotors.com",
+      "url": "https://www.prestigemotors.com",
+      "telephone": "+33123456789",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "12 Avenue Montaigne",
+        "addressLocality": "Paris",
+        "postalCode": "75008",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.866,
+        "longitude": 2.305
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/prestigemotors",
+        "https://www.instagram.com/prestigemotors"
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -49,7 +109,13 @@
                 <div class="nav__close" id="nav-close">⨯</div>
             </div>
 
-            <div class="nav__toggle" id="nav-toggle">☰</div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <!-- Theme change button -->
+                <div class="change-theme" id="theme-button" title="Changer le thème">
+                    🌗
+                </div>
+                <div class="nav__toggle" id="nav-toggle">☰</div>
+            </div>
         </nav>
     </header>
 
@@ -57,7 +123,7 @@
         <!-- HOME SECTION -->
         <section class="home section" id="home">
             <div class="home__container container grid">
-                <div class="home__content">
+                <div class="home__content reveal">
                     <div class="home__social">
                         <a href="#" class="home__social-icon">Rapide</a>
                         <a href="#" class="home__social-icon">Frisson</a>
@@ -95,11 +161,11 @@
         <section class="about section" id="about">
             <div class="about__container container grid">
                 <div class="about__img-box">
-                    <img src="assets/img/DSC0200-scaled.jpg" alt="Showroom Prestige Motors"
+                    <img src="assets/img/DSC0200-scaled.jpg" alt="Showroom Prestige Motors" loading="lazy"
                         style="width: 100%; border-radius: 0.5rem;">
                 </div>
 
-                <div class="about__data">
+                <div class="about__data reveal">
                     <h2 class="section__title">Notre Maison <br> d'Excellence</h2>
                     <p class="about__description">
                         Depuis plus de 10 ans, nous sélectionnons les plus beaux véhicules du monde pour une clientèle
@@ -138,7 +204,7 @@
 
             <div class="skills__container container grid">
                 <!-- Service 1 -->
-                <div class="skills__content">
+                <div class="skills__content reveal">
                     <h3 class="skills__title">Acquisition</h3>
                     <div class="skills__box">
                         <div class="skills__group">
@@ -159,7 +225,7 @@
                 </div>
 
                 <!-- Service 2 -->
-                <div class="skills__content">
+                <div class="skills__content reveal">
                     <h3 class="skills__title">Services Plus</h3>
                     <div class="skills__box">
                         <div class="skills__group">
@@ -188,9 +254,9 @@
 
             <div class="portfolio__container container grid">
                 <!-- Car 1 -->
-                <article class="portfolio__card">
+                <article class="portfolio__card reveal">
                     <div class="portfolio__img-wrapper">
-                        <img src="assets/img/porsche.png" alt="Porsche 911 GT3 RS"
+                        <img src="assets/img/porsche.png" alt="Porsche 911 GT3 RS" loading="lazy"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="portfolio__data">
@@ -203,9 +269,9 @@
                 </article>
 
                 <!-- Car 2 -->
-                <article class="portfolio__card">
+                <article class="portfolio__card reveal">
                     <div class="portfolio__img-wrapper">
-                        <img src="assets/img/ferrari.png" alt="Ferrari F8 Tributo"
+                        <img src="assets/img/ferrari.png" alt="Ferrari F8 Tributo" loading="lazy"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="portfolio__data">
@@ -218,9 +284,9 @@
                 </article>
 
                 <!-- Car 3 -->
-                <article class="portfolio__card">
+                <article class="portfolio__card reveal">
                     <div class="portfolio__img-wrapper">
-                        <img src="assets/img/lamborghini.png" alt="Lamborghini Huracán Evo"
+                        <img src="assets/img/lamborghini.png" alt="Lamborghini Huracán Evo" loading="lazy"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="portfolio__data">
@@ -233,9 +299,9 @@
                 </article>
 
                 <!-- Car 4 -->
-                <article class="portfolio__card">
+                <article class="portfolio__card reveal">
                     <div class="portfolio__img-wrapper">
-                        <img src="assets/img/mclaren.png" alt="McLaren 720S"
+                        <img src="assets/img/mclaren.png" alt="McLaren 720S" loading="lazy"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="portfolio__data">
@@ -248,9 +314,9 @@
                 </article>
 
                 <!-- Car 5 -->
-                <article class="portfolio__card">
+                <article class="portfolio__card reveal">
                     <div class="portfolio__img-wrapper">
-                        <img src="assets/img/aston.png" alt="Aston Martin DBS"
+                        <img src="assets/img/aston.png" alt="Aston Martin DBS" loading="lazy"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="portfolio__data">
@@ -263,9 +329,9 @@
                 </article>
 
                 <!-- Car 6 -->
-                <article class="portfolio__card">
+                <article class="portfolio__card reveal">
                     <div class="portfolio__img-wrapper">
-                        <img src="assets/img/audi.png" alt="Audi R8 V10"
+                        <img src="assets/img/audi.png" alt="Audi R8 V10" loading="lazy"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="portfolio__data">
@@ -277,9 +343,9 @@
                     </div>
                 </article>
 
-                <article class="portfolio__card">
+                <article class="portfolio__card reveal">
                     <div class="portfolio__img-wrapper">
-                        <img src="assets/img/bugatti.png" alt="Bugatti Chiron" class="portfolio__img"
+                        <img src="assets/img/bugatti.png" alt="Bugatti Chiron" class="portfolio__img" loading="lazy"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="portfolio__data">
@@ -289,9 +355,9 @@
                     </div>
                 </article>
 
-                <article class="portfolio__card">
+                <article class="portfolio__card reveal">
                     <div class="portfolio__img-wrapper">
-                        <img src="assets/img/rolls.png" alt="Rolls-Royce Phantom" class="portfolio__img"
+                        <img src="assets/img/rolls.png" alt="Rolls-Royce Phantom" class="portfolio__img" loading="lazy"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="portfolio__data">
@@ -301,10 +367,10 @@
                     </div>
                 </article>
 
-                <article class="portfolio__card">
+                <article class="portfolio__card reveal">
                     <div class="portfolio__img-wrapper">
                         <img src="assets/img/bentley.png" alt="Bentley Continental GT" class="portfolio__img"
-                            style="width: 100%; height: 100%; object-fit: cover;">
+                            loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="portfolio__data">
                         <h3 class="portfolio__title">Bentley Continental GT</h3>
@@ -323,7 +389,7 @@
             <span class="section__subtitle">Discutons de votre acquisition</span>
 
             <div class="contact__container container grid">
-                <div class="contact__content">
+                <div class="contact__content reveal">
                     <h3 class="contact__title">Coordonnées</h3>
 
                     <div class="contact__info">
@@ -343,22 +409,22 @@
                     </div>
                 </div>
 
-                <div class="contact__content">
+                <div class="contact__content reveal">
                     <h3 class="contact__title">Formulaire</h3>
 
                     <form action="" class="contact__form">
                         <div class="contact__form-div">
                             <label class="contact__form-tag">Nom</label>
-                            <input type="text" placeholder="Votre nom" class="contact__form-input">
+                            <input type="text" placeholder="Votre nom" class="contact__form-input" required>
                         </div>
                         <div class="contact__form-div">
                             <label class="contact__form-tag">Email</label>
-                            <input type="email" placeholder="Votre email" class="contact__form-input">
+                            <input type="email" placeholder="Votre email" class="contact__form-input" required>
                         </div>
                         <div class="contact__form-div contact__form-area">
                             <label class="contact__form-tag">Message</label>
                             <textarea cols="30" rows="10" placeholder="Je suis intéressé par..."
-                                class="contact__form-input"></textarea>
+                                class="contact__form-input" required></textarea>
                         </div>
                         <button class="button">Envoyer la demande</button>
                     </form>
@@ -378,6 +444,11 @@
             <span class="footer__copy">&#169; 2025 Prestige Motors. All luxury rights reserved.</span>
         </div>
     </footer>
+
+    <!-- SCROLL UP -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <span class="scrollup__icon">↑</span>
+    </a>
 
     <script src="script.js"></script>
 </body>
