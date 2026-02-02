@@ -1,0 +1,421 @@
+:root {
+    /* Pink & Coquette Palette */
+    --primary-color: #db2777;
+    /* Deep Pink */
+    --secondary-color: #be185d;
+    /* Darker Pink */
+    --accent-color: #fbcfe8;
+    /* Pastel Pink */
+    --background-color: #fff1f2;
+    /* Very Light Rose */
+    --surface-color: #ffffff;
+    --text-color: #831843;
+    /* Dark Pink/Brown text */
+    --text-muted: #be185d;
+    /* Muted Pink */
+
+    /* Typography */
+    --font-main: 'Poppins', sans-serif;
+    --font-display: 'Playfair Display', serif;
+
+    --transition-speed: 0.3s;
+    --shadow-sm: 0 1px 2px 0 rgb(219 39 119 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(219 39 119 / 0.1), 0 2px 4px -2px rgb(219 39 119 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(219 39 119 / 0.15), 0 4px 6px -4px rgb(219 39 119 / 0.1);
+    --radius-lg: 25px;
+    --radius-md: 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-style: italic;
+    /* Adding a touch of elegance */
+}
+
+h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(251, 207, 232, 0.5);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.85);
+    /* Light, frosted glass */
+    backdrop-filter: blur(12px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(219, 39, 119, 0.1);
+    box-shadow: var(--shadow-sm);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 45px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+    position: relative;
+    color: var(--text-color);
+    font-family: var(--font-display);
+    letter-spacing: 0.5px;
+}
+
+.nav-links a::after {
+    content: '🎀';
+    /* A cute detail instead of a line */
+    font-size: 0.8rem;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: -20px;
+    left: 0;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all var(--transition-speed);
+}
+
+.nav-links a:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+    background: radial-gradient(circle at top right, rgba(251, 207, 232, 0.6), transparent 50%),
+        radial-gradient(circle at bottom left, rgba(219, 39, 119, 0.1), transparent 50%);
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    font-family: var(--font-main);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+    border: 2px solid white;
+    box-shadow: 0 4px 15px rgba(219, 39, 119, 0.3);
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(219, 39, 119, 0.4);
+    background-color: var(--secondary-color);
+}
+
+/* Cards / Sommaire */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 0;
+}
+
+.card {
+    background-color: var(--surface-color);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(251, 207, 232, 0.5);
+    transition: all var(--transition-speed);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    filter: drop-shadow(0 2px 4px rgba(219, 39, 119, 0.2));
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: var(--surface-color);
+    border: 2px solid rgba(219, 39, 119, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--text-color);
+    font-family: inherit;
+    transition: all var(--transition-speed);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(219, 39, 119, 0.1);
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    padding: 4rem 0;
+    margin-top: 4rem;
+    text-align: center;
+    border-top: 1px solid rgba(219, 39, 119, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+
+    .hero {
+        padding-top: 100px;
+    }
+}
+
+/* Valentine's Specials */
+
+/* Photo Gallery (Polaroids) */
+.gallery-section {
+    padding: 6rem 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8), transparent);
+    text-align: center;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+.polaroid {
+    background: white;
+    padding: 1rem 1rem 3rem 1rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: rotate(-2deg);
+    width: 280px;
+    position: relative;
+    cursor: pointer;
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(3deg) translateY(10px);
+}
+
+.polaroid:hover {
+    transform: scale(1.1) rotate(0deg);
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+}
+
+.polaroid-img {
+    width: 100%;
+    height: 220px;
+    background-color: #ffdce0;
+    /* Placeholder pink */
+    margin-bottom: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 3rem;
+}
+
+.polaroid p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Sticker effect */
+.polaroid::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Love Letter Section */
+.letter-section {
+    padding: 6rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.letter-container {
+    background-color: #fff;
+    background-image: linear-gradient(#444 1px, transparent 1px), linear-gradient(90deg, #444 1px, transparent 1px);
+    background-size: 100% 2em, 100% 100%;
+    background: repeating-linear-gradient(white, white 29px, #fbcfe8 30px);
+    padding: 3rem;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    border: 1px solid #fce7f3;
+}
+
+/* Envelope folds effect (CSS pseudo-elements) */
+.letter-container::before {
+    content: '💌';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 3rem;
+    transform: rotate(15deg);
+}
+
+.letter-content {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    border: none;
+    width: 100%;
+    background: transparent;
+    resize: none;
+    outline: none;
+    height: 400px;
+}
+
+.letter-title {
+    text-align: center;
+    font-family: var(--font-display);
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}

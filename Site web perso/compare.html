@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparateur | Prestige Motors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏎️</text></svg>">
+</head>
+
+<body>
+
+
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">Prestige<span class="dot">.</span></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Accueil</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#collection" class="nav__link">Collection</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="compare.html" class="nav__link active-link">Comparateur</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link button-link">Nous contacter</a>
+                    </li>
+                </ul>
+                <div class="nav__close" id="nav-close">⨯</div>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">☰</div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="section compare section__title-center" id="compare">
+            <h2 class="section__title">Comparateur Visuel</h2>
+            <span class="section__subtitle">Analysez. Comparez. Choisissez.</span>
+
+            <div class="compare__container container grid">
+                <!-- VÉHICULE A -->
+                <div class="compare__item glass-effect">
+                    <div class="compare__header">
+                        <select id="select-car-1" class="compare__select">
+                            <option value="" disabled selected>Choisir véhicule 1</option>
+                        </select>
+                    </div>
+
+                    <div id="compare-result-1" class="compare__result hidden">
+                        <div class="compare__img-box">
+                            <img src="" alt="" id="img-1" class="compare__img">
+                        </div>
+                        <h3 class="compare__car-title" id="title-1">--</h3>
+                        <p class="compare__price highlight-text" id="price-1">-- €</p>
+
+                        <div class="compare__specs">
+                            <div class="spec__row">
+                                <span class="spec__label">Moteur</span>
+                                <span class="spec__value" id="engine-1">--</span>
+                            </div>
+
+                            <!-- Progress Bar: Power -->
+                            <div class="spec__progress-container">
+                                <div class="spec__label-row">
+                                    <span class="spec__label">Puissance</span>
+                                    <span class="spec__value" id="power-1">--</span>
+                                </div>
+                                <div class="progress-bg">
+                                    <div class="progress-bar" id="bar-power-1" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Progress Bar: Accel (Inverted logic visual) -->
+                            <div class="spec__progress-container">
+                                <div class="spec__label-row">
+                                    <span class="spec__label">0-100 km/h</span>
+                                    <span class="spec__value" id="accel-1">--</span>
+                                </div>
+                                <div class="progress-bg">
+                                    <div class="progress-bar progress-bar--accel" id="bar-accel-1" style="width: 0%">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="spec__row">
+                                <span class="spec__label">Conso. Mixte</span>
+                                <span class="spec__value" id="conso-1">--</span>
+                            </div>
+                            <div class="spec__row">
+                                <span class="spec__label">Coffre</span>
+                                <span class="spec__value" id="trunk-1">--</span>
+                            </div>
+                        </div>
+
+                        <div class="compare__features">
+                            <h4 class="compare__features-title">Équipements Clés</h4>
+                            <ul class="compare__features-list" id="features-1"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VS SEPARATOR -->
+                <div class="compare__vs">
+                    <div class="vs-badge">VS</div>
+                </div>
+
+                <!-- VÉHICULE B -->
+                <div class="compare__item glass-effect">
+                    <div class="compare__header">
+                        <select id="select-car-2" class="compare__select">
+                            <option value="" disabled selected>Choisir véhicule 2</option>
+                        </select>
+                    </div>
+
+                    <div id="compare-result-2" class="compare__result hidden">
+                        <div class="compare__img-box">
+                            <img src="" alt="" id="img-2" class="compare__img">
+                        </div>
+                        <h3 class="compare__car-title" id="title-2">--</h3>
+                        <p class="compare__price highlight-text" id="price-2">-- €</p>
+
+                        <div class="compare__specs">
+                            <div class="spec__row">
+                                <span class="spec__label">Moteur</span>
+                                <span class="spec__value" id="engine-2">--</span>
+                            </div>
+
+                            <!-- Progress Bar: Power -->
+                            <div class="spec__progress-container">
+                                <div class="spec__label-row">
+                                    <span class="spec__label">Puissance</span>
+                                    <span class="spec__value" id="power-2">--</span>
+                                </div>
+                                <div class="progress-bg">
+                                    <div class="progress-bar" id="bar-power-2" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Progress Bar: Accel -->
+                            <div class="spec__progress-container">
+                                <div class="spec__label-row">
+                                    <span class="spec__label">0-100 km/h</span>
+                                    <span class="spec__value" id="accel-2">--</span>
+                                </div>
+                                <div class="progress-bg">
+                                    <div class="progress-bar progress-bar--accel" id="bar-accel-2" style="width: 0%">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="spec__row">
+                                <span class="spec__label">Conso. Mixte</span>
+                                <span class="spec__value" id="conso-2">--</span>
+                            </div>
+                            <div class="spec__row">
+                                <span class="spec__label">Coffre</span>
+                                <span class="spec__value" id="trunk-2">--</span>
+                            </div>
+                        </div>
+
+                        <div class="compare__features">
+                            <h4 class="compare__features-title">Équipements Clés</h4>
+                            <ul class="compare__features-list" id="features-2"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <h1 class="footer__title">Prestige Motors</h1>
+            <span class="footer__copy">&#169; 2025 Prestige Motors. All luxury rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const select1 = document.getElementById('select-car-1');
+            const select2 = document.getElementById('select-car-2');
+
+            // Populate selects
+            Object.keys(carsData).forEach(key => {
+                const car = carsData[key];
+                const option1 = new Option(car.title, key);
+                const option2 = new Option(car.title, key);
+                select1.add(option1);
+                select2.add(option2);
+            });
+
+            const renderCar = (side, carKey) => {
+                const car = carsData[carKey];
+                if (!car) return;
+
+                const resultDiv = document.getElementById(`compare-result-${side}`);
+                resultDiv.classList.remove('hidden');
+
+                // Images & Text
+                document.getElementById(`img-${side}`).src = car.img;
+                document.getElementById(`title-${side}`).textContent = car.title;
+                document.getElementById(`price-${side}`).textContent = car.price;
+                document.getElementById(`engine-${side}`).textContent = car.engine;
+                document.getElementById(`power-${side}`).textContent = car.power;
+                document.getElementById(`accel-${side}`).textContent = car.accel;
+                document.getElementById(`conso-${side}`).textContent = car.consumption;
+                document.getElementById(`trunk-${side}`).textContent = car.trunk;
+
+                // Features
+                const featuresList = document.getElementById(`features-${side}`);
+                featuresList.innerHTML = '';
+                car.features.forEach(feat => {
+                    const li = document.createElement('li');
+                    li.textContent = `✓ ${feat}`;
+                    featuresList.appendChild(li);
+                });
+
+                // Update Progress Bars Animation
+                setTimeout(() => {
+                    // Power Logic: Max refined to 800ch
+                    const powerVal = parseInt(car.power.replace(/\D/g, ''));
+                    const powerPercent = Math.min((powerVal / 800) * 100, 100);
+                    document.getElementById(`bar-power-${side}`).style.width = `${powerPercent}%`;
+
+                    // Accel Logic: Max 4s (lower is better) -> 2.0s = 100%, 4.0s = 0%
+                    // Formula: (4 - val) / (4 - 2) * 100 roughly
+                    const accelVal = parseFloat(car.accel.replace(',', '.'));
+                    // Let's simpler logic: 2s -> 100%, 5s -> 0%
+                    // 100 - ((val - 2) / 3 * 100)
+                    let accelPercent = 100 - ((accelVal - 2) / 3 * 100);
+                    if (accelPercent < 0) accelPercent = 10;
+                    if (accelPercent > 100) accelPercent = 100;
+
+                    document.getElementById(`bar-accel-${side}`).style.width = `${accelPercent}%`;
+                }, 100);
+            };
+
+            select1.addEventListener('change', (e) => renderCar(1, e.target.value));
+            select2.addEventListener('change', (e) => renderCar(2, e.target.value));
+        });
+    </script>
+</body>
+
+</html>

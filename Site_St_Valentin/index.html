@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ton Petit Paradis ❤️</title>
+    <link rel="icon" type="image/png" href="logo/logo.png">
+    <link rel="stylesheet" href="style.css?v=2">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Login Overlay -->
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>Bienvenue ❤️</h2>
+            <p>Un mot de passe est requis pour accéder à notre monde.</p>
+            <input type="password" id="password-input" placeholder="Code secret...">
+            <button class="btn" onclick="checkPassword()">Entrer</button>
+            <p id="error-msg" style="color: red; display: none; margin-top: 10px;">Mauvais code ! 😢</p>
+        </div>
+    </div>
+
+    <!-- Custom Progress Bar -->
+    <div id="progress-container">
+        <div id="progress-line"></div>
+        <div id="progress-fill"></div>
+        <div id="progress-icon">❤️</div>
+    </div>
+
+    <div class="stars-container">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="logo/logo.png" alt="MonSite Logo">
+                </div>
+                <!-- Navigation links removed -->
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Joyeuse Saint-Valentin ❤️</h1>
+            <p>Un espace dédié à l'amour, aux souvenirs et à la douceur.</p>
+            <a href="#timer" class="btn">Ensemble depuis...</a>
+        </div>
+    </section>
+
+    <!-- Relationship Timer Section -->
+    <section id="timer" class="timer-section">
+        <div class="container">
+            <h2>Ensemble depuis...</h2>
+            <div class="timer-container">
+                <div class="timer-box">
+                    <span class="timer-number">0</span>
+                    <span class="timer-label">Années</span>
+                </div>
+                <div class="timer-box">
+                    <span class="timer-number">7</span>
+                    <span class="timer-label">Mois</span>
+                </div>
+                <div class="timer-box">
+                    <span class="timer-number">1</span>
+                    <span class="timer-label">Jours</span>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; font-size: 1.2rem;">...le 13 Août 2025 ❤️</p>
+        </div>
+    </section>
+
+    <!-- 'Why I Love You' Generator Section -->
+    <section id="reasons" class="reasons-section">
+        <div class="container">
+            <h2>Pourquoi je t'aime...</h2>
+            <div class="reason-container">
+                <div id="reason-display" class="reason-display">
+                    Clique sur le bouton pour savoir ❤️
+                </div>
+                <button class="btn" onclick="generateReason()">Dis-moi pourquoi !</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vertical Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <h2>Notre Histoire d'Amour</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">21 Juin 2025</div>
+                        <h3>La Rencontre</h3>
+                        <p>Le jour où nos regards se sont croisés pour la première fois sur un trotoire a coté d'une
+                            poubelle</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">26 Juillet 2025</div>
+                        <h3>Nos Première Vacances</h3>
+                        <p>Des vacances inoubliables et des souvenirs qu'on n'oubliera jamais ("les randonnées")
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">13 Aout 2025</div>
+                        <h3>Notre Date</h3>
+                        <p>La demande ou ta failli mourir dans le bus 😭</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aujourd'hui</div>
+                        <h3>Toujours Ensemble</h3>
+                        <p>Et ce n'est que le début de notre belle histoire... 💍</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="memories" class="gallery-section">
+        <div class="container">
+            <h2>Nos plus beaux moments</h2>
+
+            <div class="gallery-grid">
+                <!-- Heart Background (Now inside the grid for absolute positioning context) -->
+                <div class="heart-bg-container">
+                    <svg viewBox="0 0 512 512" width="100%" height="100%">
+                        <path fill="currentColor"
+                            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z" />
+                    </svg>
+                </div>
+
+                <div class="polaroid" onclick="this.classList.toggle('flipped')">
+                    <div class="polaroid-inner">
+                        <div class="polaroid-front">
+                            <div class="polaroid-img">
+                                <img src="photo/IMG_1970.png" alt="Premier rendez-vous">
+                            </div>
+                            <p>Premier marché de Noël</p>
+                        </div>
+                        <div class="polaroid-back">
+                            <p>"Le plus beau moment que j'ai eu avec toi" ❤️</p>
+                            <div class="audio-controls">
+                                <button class="play-btn" data-audio="music/song1.mp3">Play ▶</button>
+                                <button class="stop-btn">Stop ⏹</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="polaroid" onclick="this.classList.toggle('flipped')">
+                    <div class="polaroid-inner">
+                        <div class="polaroid-front">
+                            <div class="polaroid-img">
+                                <img src="photo/IMG_1885.png" alt="Notre voyage">
+                            </div>
+                            <p>Ton Bouquet de fleur</p>
+                        </div>
+                        <div class="polaroid-back">
+                            <p>"Le plus beau des sourires" ❤️</p>
+                            <div class="audio-controls">
+                                <button class="play-btn" data-audio="music/song2.mp3">Play ▶</button>
+                                <button class="stop-btn">Stop ⏹</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="polaroid" onclick="this.classList.toggle('flipped')">
+                    <div class="polaroid-inner">
+                        <div class="polaroid-front">
+                            <div class="polaroid-img">
+                                <img src="photo/IMG_1596.png" alt="Célébrations">
+                            </div>
+                            <p>Evenement</p>
+                        </div>
+                        <div class="polaroid-back">
+                            <p>"Fier d'être l'homme qui t'accompagne partout ou tu vas" ❤️</p>
+                            <div class="audio-controls">
+                                <button class="play-btn" data-audio="music/song3.mp3">Play ▶</button>
+                                <button class="stop-btn">Stop ⏹</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="polaroid" onclick="this.classList.toggle('flipped')">
+                    <div class="polaroid-inner">
+                        <div class="polaroid-front">
+                            <div class="polaroid-img">
+                                <img src="photo/IMG_1952.png" alt="Chez nous">
+                            </div>
+                            <p>La Seul Femme a mes Yeux</p>
+                        </div>
+                        <div class="polaroid-back">
+                            <p>"Cette bague signifie beaucoup pour moi" ❤️</p>
+                            <div class="audio-controls">
+                                <button class="play-btn" data-audio="music/song4.mp3">Play ▶</button>
+                                <button class="stop-btn">Stop ⏹</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Letter Section -->
+    <section id="letter" class="letter-section">
+        <div class="container">
+            <div class="letter-container">
+                <h2 class="letter-title">Mon Amoureuse,</h2>
+                <div class="letter-content">
+                    <p>Je t’écris aujourd’hui cette lettre pour te remercier de faire partie de ma vie. Grâce à toi, je
+                        découvre un sentiment que je n’avais jamais connu auparavant. Aucun mot ne peut décrire l’amour
+                        que j’ai pour toi, tu es la femme la plus importante à mes yeux.</p>
+                    <p>Je veux que notre histoire continue et dure dans le temps, car je veux vivre avec toi et toi
+                        seule. Je veux que tu sois la mère de nos enfants, je veux avoir un teckel avec toi, je veux me
+                        marier avec toi. Je veux tout, enft. La moindre chose me fait penser à toi et à nous.</p>
+                    <p>Je t’aime et t’aimerai jusqu’à ce que la mort nous sépare.</p>
+                    <p class="signature">- Anas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scratch Card Trigger Section -->
+    <section id="scratch" class="scratch-section">
+        <div class="container">
+            <h2>Une dernière surprise... </h2>
+            <button class="btn" onclick="openScratch()">Découvrir ma surprise !</button>
+        </div>
+    </section>
+
+    <!-- Scratch Card Modal Overlay -->
+    <div id="scratch-overlay" class="modal-overlay" onclick="closeScratch(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeScratch(event)">&times;</span>
+            <h2>Gratte pour découvrir ! </h2>
+            <div class="scratch-container">
+                <div class="secret-message">
+                    <p>Rendez-vous dans la chambre.</p>
+                    <p>Ce soir, une petite surprise t'attend.</p>
+                </div>
+                <canvas id="scratch-canvas" width="300" height="150"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sommaire section removed -->
+
+    <footer>
+        <div class="container">
+            <p>&copy; Je t'aime 🫶 !!!! De la part de ton amoureux</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js?v=2"></script>
+</body>
+
+</html>

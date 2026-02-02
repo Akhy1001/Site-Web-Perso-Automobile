@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            background: #e0f7fa;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        select,
+        button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        h1 {
+            margin: 0 0 20px 0;
+            color: #006064;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .loader {
+            color: gray;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* Caché par défaut */
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Meteo Express </h1>
+
+        <select id="citySelect">
+            <option value="48.85,2.35">Paris</option>
+            <option value="45.75,4.85">Lyon</option>
+            <option value="43.30,5.40">Marseille</option>
+            <option value="50.63,3.06">Lille</option>
+            <option value="44.84,-0.58">Bordeaux</option>
+        </select>
+
+        <button id="getWeatherBtn">Voir la meteo</button>
+
+        <p class="loader" id="loader">Chargement...</p>
+        <div id="result">°C</div>
+    </div>
+
+    <script>
+        // 1. SÉLECTION
+        const btn = document.querySelector("#getWeatherBtn");
+        const select = document.querySelector("#citySelect");
+        const resultDiv = document.querySelector("#result");
+        const loader = document.querySelector("#loader");
+
+        // 2. FONCTION ASYNCHRONE
+        // Le mot-clé "async" prévient JS qu'il y aura des temps d'attente dans cette fonction
+        async function fetchWeather() {
+
+            // A. On prépare le terrain
+            resultDiv.textContent = "";       // On efface l'ancien résultat
+            loader.style.display = "block";   // On affiche "Chargement..."
+
+            // B. On récupère les coordonnées de la ville choisie (ex: "48.85,2.35")
+            const coords = select.value.split(","); // On coupe à la virgule
+            const lat = coords[0];
+            const lon = coords[1];
+
+            // C. On construit l'adresse (URL) de l'API
+            const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+
+            try {
+                // D. L'APPEL RÉSEAU (Le moment crucial)
+                // "await fetch" veut dire : "Va à cette adresse et ATTENDS la réponse avant de passer à la ligne suivante"
+                const response = await fetch(apiUrl);
+
+                // E. On transforme la réponse brute en JSON (objet lisible par JS)
+                const data = await response.json();
+
+                // F. On affiche le résultat
+                // On va chercher la température dans l'objet reçu
+                const temperature = data.current_weather.temperature;
+                resultDiv.textContent = temperature + "°C";
+
+            } catch (error) {
+                // Si internet est coupé ou si l'API plante, on tombe ici
+                resultDiv.textContent = "Erreur !";
+                console.error(error);
+            } finally {
+                // Dans tous les cas (réussite ou échec), on cache le "Chargement..."
+                loader.style.display = "none";
+            }
+        }
+
+        // 3. ÉVÉNEMENT
+        btn.addEventListener("click", fetchWeather);
+
+    </script>
+</body>
+
+</html>
