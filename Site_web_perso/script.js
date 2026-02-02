@@ -87,19 +87,26 @@ window.addEventListener('scroll', scrollUp)
    LIGHT/DARK THEME
    ========================================= */
 const themeButton = document.getElementById('theme-button')
-const darkTheme = 'light-theme' // We toggle this class on body
-const iconTheme = 'sun' // Placeholder for icon logic if we swapped icons
+const darkTheme = 'light-theme' // we add this class for light theme
+const iconTheme = '☀️' // Icon for light theme
+const iconDark = '🌙'   // Icon for dark theme
 
 // Previously selected topic (if user selected)
 const selectedTheme = localStorage.getItem('selected-theme')
+const selectedIcon = localStorage.getItem('selected-icon')
 
 // We obtain the current theme that the interface has by validating the light-theme class
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'light' : 'dark'
+const getCurrentIcon = () => themeButton.textContent.trim() === iconTheme ? iconTheme : iconDark
 
 // We validate if the user previously chose a topic
 if (selectedTheme) {
     // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the light
     document.body.classList[selectedTheme === 'light' ? 'add' : 'remove'](darkTheme)
+    // We update the icon
+    if (themeButton) {
+        themeButton.textContent = selectedTheme === 'light' ? iconTheme : iconDark
+    }
 }
 
 // Activate / deactivate the theme manually with the button
@@ -107,8 +114,22 @@ if (themeButton) {
     themeButton.addEventListener('click', () => {
         // Add or remove the light / dark icon
         document.body.classList.toggle(darkTheme)
+
+        // Toggle Icon
+        // If body has 'light-theme', we show Sun (implies we are in light mode)
+        // Actually, usually "Sun" icon means "Click to switch to Light" or "We are in Light"?
+        // User request: "quand c blanc le bouton devient un soleil et quand c noir le bouton devient une lune"
+        // White (Light Mode) -> Button is Sun
+        // Black (Dark Mode) -> Button is Moon
+        if (document.body.classList.contains(darkTheme)) {
+            themeButton.textContent = iconTheme // Sun
+        } else {
+            themeButton.textContent = iconDark // Moon
+        }
+
         // We save the theme and the current icon that the user chose
         localStorage.setItem('selected-theme', getCurrentTheme())
+        localStorage.setItem('selected-icon', getCurrentIcon())
     })
 }
 
