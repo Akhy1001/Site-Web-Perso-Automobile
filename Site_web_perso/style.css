@@ -130,7 +130,6 @@ body {
     background-color: var(--body-color);
     color: var(--text-color);
     transition: .4s;
-    cursor: none;
 }
 
 h1,
@@ -155,7 +154,7 @@ ul {
 a {
     text-decoration: none;
     text-decoration: none;
-    cursor: none;
+    text-decoration: none;
 }
 
 img {
@@ -169,7 +168,6 @@ textarea {
     font: inherit;
     border: none;
     outline: none;
-    cursor: none;
 }
 
 
@@ -1037,8 +1035,6 @@ body {
     color: var(--text-color);
     transition: .4s;
     /* For theme switch if added later */
-    cursor: none;
-    /* Custom cursor */
 }
 
 h1,
@@ -1062,8 +1058,6 @@ ul {
 
 a {
     text-decoration: none;
-    cursor: none;
-    /* Custom cursor */
 }
 
 img {
@@ -1077,51 +1071,8 @@ textarea {
     font: inherit;
     border: none;
     outline: none;
-    cursor: none;
-    /* Custom cursor */
 }
 
-/* CUSTOM CURSOR */
-.cursor-dot,
-.cursor-outline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none;
-}
-
-.cursor-dot {
-    width: 5px;
-    height: 5px;
-    background-color: var(--first-color);
-}
-
-.cursor-outline {
-    width: 30px;
-    height: 30px;
-    border: 1px solid var(--text-color-light);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
-
-.cursor-dot {
-    width: 5px;
-    height: 5px;
-    background-color: var(--title-color);
-}
-
-.cursor-outline {
-    width: 30px;
-    height: 30px;
-    border: 1px solid var(--text-color-light);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
-
-body:hover .cursor-outline {
-    /* Slight lag effect is done via JS usually, or pure css transition is limited without JS tracking */
-}
 
 /* REUSABLE CSS CLASSES */
 .section {

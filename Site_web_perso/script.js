@@ -29,26 +29,6 @@ function linkAction() {
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
-/* CUSTOM CURSOR EFFECT */
-const cursorDot = document.querySelector('[data-cursor-dot]');
-const cursorOutline = document.querySelector('[data-cursor-outline]');
-
-window.addEventListener("mousemove", function (e) {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    // Dot interaction - instant
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    // Outline interaction - slightly delayed typical smooth effect
-    // Using animate for smoother performance than just setting style in simple interval
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
-});
-
 /* HIGHLIGHT LINK ON SCROLL */
 const sections = document.querySelectorAll('section[id]')
 
