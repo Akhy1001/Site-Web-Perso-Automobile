@@ -73,6 +73,60 @@ function scrollActive() {
 }
 window.addEventListener('scroll', scrollActive)
 
+/* =========================================
+   SHOW SCROLL UP
+   ========================================= */
+function scrollUp() {
+    const scrollUp = document.getElementById('scroll-up');
+    // When the scroll is higher than 350 viewport height, add the show-scroll class
+    if (this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+/* =========================================
+   LIGHT/DARK THEME
+   ========================================= */
+const themeButton = document.getElementById('theme-button')
+const darkTheme = 'light-theme' // We toggle this class on body
+const iconTheme = 'sun' // Placeholder for icon logic if we swapped icons
+
+// Previously selected topic (if user selected)
+const selectedTheme = localStorage.getItem('selected-theme')
+
+// We obtain the current theme that the interface has by validating the light-theme class
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'light' : 'dark'
+
+// We validate if the user previously chose a topic
+if (selectedTheme) {
+    // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the light
+    document.body.classList[selectedTheme === 'light' ? 'add' : 'remove'](darkTheme)
+}
+
+// Activate / deactivate the theme manually with the button
+if (themeButton) {
+    themeButton.addEventListener('click', () => {
+        // Add or remove the light / dark icon
+        document.body.classList.toggle(darkTheme)
+        // We save the theme and the current icon that the user chose
+        localStorage.setItem('selected-theme', getCurrentTheme())
+    })
+}
+
+/* =========================================
+   SCROLL REVEAL ANIMATION
+   ========================================= */
+const sr = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active-reveal');
+        }
+    });
+});
+
+const revealElements = document.querySelectorAll('.reveal');
+revealElements.forEach((el) => sr.observe(el));
+
+
 
 /* =========================================
    PRODUCT DETAIL LOGIC
