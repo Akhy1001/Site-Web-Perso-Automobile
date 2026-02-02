@@ -250,6 +250,45 @@ const carsData = {
         consumption: "13.7 L/100km",
         trunk: "358 L",
         features: ["Rotating Display", "Cuir Diamant", "4 Roues Directrices", "Naim Audio"]
+    },
+    'mercedes': {
+        title: "Mercedes-AMG GT Black Series",
+        price: "400 000 €",
+        desc: "La bête de l'enfer vert. Avec son aérodynamisme actif dérivé de la GT3 et son V8 vilebrequin à plat, c'est la Mercedes de série la plus extrême jamais produite.",
+        engine: "4.0L V8 Bi-Turbo",
+        power: "730 ch",
+        accel: "3.2 sec",
+        year: "2023",
+        img: "assets/img/mercedes.png",
+        consumption: "12.8 L/100km",
+        trunk: "Unknown",
+        features: ["Aéro Actif", "Pack Track", "Carbone Apparent", "Pneus Cup 2 R"]
+    },
+    'pagani': {
+        title: "Pagani Huayra Roadster",
+        price: "3 500 000 €",
+        desc: "L'art en mouvement. Plus légère que le coupé, cette sculpture de carbone et de titane célèbre la complexité mécanique et la beauté pure. Moteur V12 AMG fabriqué à la main spécifiquement pour Pagani.",
+        engine: "6.0L V12 Twin-Turbo",
+        power: "764 ch",
+        accel: "2.8 sec",
+        year: "2022",
+        img: "assets/img/pagani.png",
+        consumption: "15.0 L/100km",
+        trunk: "Set de bagages",
+        features: ["Carbo-Titane", "Toit Carbone", "Intérieur Sur-Mesure", "Échappement Titane"]
+    },
+    'koenigsegg': {
+        title: "Koenigsegg Jesko",
+        price: "3 000 000 €",
+        desc: "La mégacar ultime. Nommée en l'honneur du père du fondateur, la Jesko repousse les limites de la physique avec sa transmission LST à 9 rapports et son appui aérodynamique colossal.",
+        engine: "5.0L V8 Twin-Turbo",
+        power: "1600 ch (E85)",
+        accel: "2.5 sec",
+        year: "2024",
+        img: "assets/img/koenigsegg.png",
+        consumption: "20.0 L/100km",
+        trunk: "Petit",
+        features: ["Transmission LST", "Portes Dihedral", "Autoskin", "Triplex Suspension"]
     }
 };
 
