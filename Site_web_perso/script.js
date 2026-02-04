@@ -323,6 +323,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('spec-accel').textContent = data.accel;
             document.getElementById('spec-year').textContent = data.year;
 
+            // Update Reservation Button Link
+            const reserveBtn = document.getElementById('reserve-btn');
+            if (reserveBtn) {
+                reserveBtn.href = `reservation.html?car=${carId}`;
+            }
+
         } else {
             // Handle error or invalid car
             document.getElementById('product-title').textContent = "Véhicule introuvable";
