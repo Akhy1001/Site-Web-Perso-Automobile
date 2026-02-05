@@ -292,15 +292,98 @@ textarea {
 }
 
 .change-theme {
-    font-size: 1.25rem;
-    color: var(--title-color);
-    margin-right: 1rem;
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: .3s;
+    color: var(--title-color);
+    transition: color .3s;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .change-theme:hover {
     color: var(--first-color);
+}
+
+.theme-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1.5);
+    /* Bouncy transition */
+}
+
+/* --- SVG ANIMATION LOGICS --- */
+/* Default (Dark Mode): Show Moon */
+/* In Dark Mode (default state of CSS), we want a Moon */
+/* The SVG structure has a 'sun-core' that gets masked to look like a moon */
+
+/* Common parts */
+.sun-core {
+    fill: currentColor;
+    transition: all 0.5s ease;
+}
+
+.sun-rays {
+    stroke: currentColor;
+    transition: all 0.5s ease;
+    transform-origin: center;
+}
+
+.moon-mask-circle {
+    transition: cx 0.5s ease, cy 0.5s ease;
+}
+
+/* 
+   STATE: DARK MODE (DEFAULT) 
+   --------------------------
+   We want a MOON.
+   - Rays should be hidden (scale 0).
+   - Core should be masked to look like a crescent.
+*/
+/* By default (Dark Mode), body does NOT have .light-theme */
+
+/* Rays hidden in Dark Mode (Moon) */
+body:not(.light-theme) .sun-rays {
+    opacity: 0;
+    transform: scale(0.5) rotate(-45deg);
+}
+
+/* Mask moves in to cut the circle into a crescent */
+/* cx=12, cy=4 (top right corner) cuts it nicely */
+body:not(.light-theme) .moon-mask-circle {
+    cx: 12;
+    cy: 4;
+}
+
+/* Rotate the whole icon slightly for the moon angle */
+body:not(.light-theme) .theme-icon {
+    transform: rotate(-15deg);
+}
+
+
+/* 
+   STATE: LIGHT MODE 
+   -----------------
+   We want a SUN.
+   - Rays visible (scale 1).
+   - Core full (Mask moves away).
+*/
+
+body.light-theme .sun-rays {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+}
+
+body.light-theme .moon-mask-circle {
+    /* Move mask away so circle is full */
+    cx: 30;
+    cy: 0;
+}
+
+body.light-theme .theme-icon {
+    transform: rotate(90deg);
 }
 
 
@@ -427,7 +510,7 @@ textarea {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.6;
-    animation: pulseGlow 4s infinite alternate;
+    animation: pulseGlow 2.5s infinite alternate;
 }
 
 .shape-2 {
@@ -437,13 +520,18 @@ textarea {
 
 @keyframes pulseGlow {
     0% {
-        opacity: 0.4;
-        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.2;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.8);
     }
 
     100% {
-        opacity: 0.7;
-        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.2;
+        transform: translate(-50%, -50%) scale(0.8);
     }
 }
 
@@ -865,6 +953,11 @@ textarea {
         flex-direction: row;
     }
 
+    /* Show indicator on desktop */
+    .nav__indicator {
+        opacity: 1;
+    }
+
     .home__container {
         row-gap: 5rem;
         align-items: center;
@@ -1206,6 +1299,46 @@ textarea {
     color: var(--first-color);
 }
 
+/* Sliding Indicator */
+.nav__indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    /* Animated via JS */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.2, 0.6, 0.2, 1);
+    z-index: 0;
+    opacity: 0;
+    /* Hidden by default or when not active */
+    pointer-events: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.nav__list {
+    position: relative;
+    /* Anchor for indicator */
+}
+
+/* Ensure links are above indicator */
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 10;
+    padding: 0.5rem 1rem;
+    /* Hit area for pill */
+}
+
 .nav__close {
     position: absolute;
     right: 1.3rem;
@@ -1325,22 +1458,68 @@ textarea {
 /* BUTTONS */
 .button {
     display: inline-flex;
-    /* Ensures flex centering works for contents */
     align-items: center;
-    /* Vertically centers text and icon */
+    justify-content: center;
     background: var(--gradient-primary);
     color: #fff;
-    padding: 1rem 1.75rem;
-    border-radius: .5rem;
+    padding: 1rem 2rem;
+    /* Wider padding for pill look */
+    border-radius: 9999px;
+    /* Full pill shape */
     font-weight: var(--font-medium);
     transition: .3s;
     border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Shine Effect Animation */
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    z-index: 2;
+    animation: shine 3s infinite cubic-bezier(0.19, 1, 0.22, 1);
+    /* Pause between shines can be achieved by long duration or delays, 
+       but infinite simple loop is often used for these effects. 
+       Let's try a 5s loop for less frequency. */
+    animation: shine 6s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    20% {
+        left: 200%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 200%;
+        opacity: 0;
+    }
 }
 
 .button:hover {
     background-color: var(--first-color-alt);
-    box-shadow: 0 5px 15px rgba(100, 100, 250, 0.2);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(100, 100, 250, 0.25);
+    transform: translateY(-3px);
 }
 
 .button__icon {

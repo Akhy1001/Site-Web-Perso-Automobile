@@ -32,6 +32,60 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 /* HIGHLIGHT LINK ON SCROLL */
 const sections = document.querySelectorAll('section[id]')
 
+/* =========================================
+   ANIMATED MENU INDICATOR
+   ========================================= */
+const indicator = document.querySelector('.nav__indicator');
+const navList = document.querySelector('.nav__list');
+
+function moveIndicator(element) {
+    if (!indicator || !element || !navList) return;
+
+    // We calculate position relative to the UL parent
+    // Use getBoundingClientRect for precision across nested elements
+    const parentRect = navList.getBoundingClientRect();
+    const elRect = element.getBoundingClientRect();
+
+    // Calculate relative position
+    const left = elRect.left - parentRect.left;
+    const top = elRect.top - parentRect.top;
+
+    // Apply styles
+    indicator.style.width = `${elRect.width}px`;
+    indicator.style.height = `${elRect.height}px`; // Match height (pill shape)
+    indicator.style.transform = `translate(${left}px, ${top}px)`;
+    indicator.style.opacity = '1';
+}
+
+// Reset to active link
+function resetIndicator() {
+    const activeLink = document.querySelector('.nav__link.active-link');
+    if (activeLink) {
+        moveIndicator(activeLink);
+    } else {
+        // If no active link, hide indicator
+        if (indicator) indicator.style.opacity = '0';
+    }
+}
+
+// Event Listeners for Hover
+const navLinksDesktop = document.querySelectorAll('.nav__link');
+navLinksDesktop.forEach(link => {
+    link.addEventListener('mouseenter', () => moveIndicator(link));
+});
+
+if (navList) {
+    navList.addEventListener('mouseleave', resetIndicator);
+}
+
+// Update on Resize
+window.addEventListener('resize', resetIndicator);
+
+// Initial call
+setTimeout(resetIndicator, 100); // Small delay to ensure layout reflow
+
+// --- SCROLL ACTIVE UPDATE ---
+
 function scrollActive() {
     const scrollY = window.pageYOffset
 
@@ -44,12 +98,53 @@ function scrollActive() {
         const link = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
         if (link) {
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                link.classList.add('active-link')
+                // Remove active from all first (optional, but good for cleanup)
+                // Actually existing code just adds/removes based on condition
+                // But we need to know if it CHANGED to animate the indicator
+
+                if (!link.classList.contains('active-link')) {
+                    // It's a new active link
+                    document.querySelectorAll('.nav__link').forEach(l => l.classList.remove('active-link'));
+                    link.classList.add('active-link');
+                    moveIndicator(link);
+                }
             } else {
+                // We don't remove blindly, because we want ONE active at a time usually
+                // But the logic above might leave multiple active if sections overlap?
+                // Standard scroll spy usually handles "one active".
+                // Existing logic:
+                // if inside -> add active
+                // else -> remove active
+                // This means if we are OUTSIDE, we remove.
+
+                // Refinining logic for single active:
+                // The loop runs for ALL sections.
+                // If we are NOT in the section, we remove active-link.
                 link.classList.remove('active-link')
             }
         }
     })
+
+    // Safety: If no link is active, or if logic needs sync
+    // The loop above might cause flicker if we are between sections?
+    // Let's rely on the fact that one will be added.
+    // But we need to ensure ResetToActive works if the mouse is NOT hovering.
+
+    // If user is hovering, we shouldn't force indicator away? 
+    // Actually, usually scroll spy updates indicator even if hovering? 
+    // Let's assume scroll priority is fine, or simple reset.
+    // If hover is active, maybe we don't move? 
+    // For now, let's keep it simple: scroll updates active-link. 
+    // If not hovering, we want indicator to be at active-link.
+    // resetIndicator() uses active-link.
+
+    // We can call resetIndicator() at the end of scrollActive if NOT hovering?
+    // Or just let it be.
+
+    // Actually, the loop modifies classList. 
+    // After the loop, the active-link is set correctly.
+    // We should sync indicator to it.
+    resetIndicator();
 }
 window.addEventListener('scroll', scrollActive)
 
@@ -68,25 +163,17 @@ window.addEventListener('scroll', scrollUp)
    ========================================= */
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'light-theme' // we add this class for light theme
-const iconTheme = '☀️' // Icon for light theme
-const iconDark = '🌙'   // Icon for dark theme
 
 // Previously selected topic (if user selected)
 const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
 
 // We obtain the current theme that the interface has by validating the light-theme class
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'light' : 'dark'
-const getCurrentIcon = () => themeButton.textContent.trim() === iconTheme ? iconTheme : iconDark
 
 // We validate if the user previously chose a topic
 if (selectedTheme) {
     // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the light
     document.body.classList[selectedTheme === 'light' ? 'add' : 'remove'](darkTheme)
-    // We update the icon
-    if (themeButton) {
-        themeButton.textContent = selectedTheme === 'light' ? iconTheme : iconDark
-    }
 }
 
 // Activate / deactivate the theme manually with the button
@@ -95,21 +182,8 @@ if (themeButton) {
         // Add or remove the light / dark icon
         document.body.classList.toggle(darkTheme)
 
-        // Toggle Icon
-        // If body has 'light-theme', we show Sun (implies we are in light mode)
-        // Actually, usually "Sun" icon means "Click to switch to Light" or "We are in Light"?
-        // User request: "quand c blanc le bouton devient un soleil et quand c noir le bouton devient une lune"
-        // White (Light Mode) -> Button is Sun
-        // Black (Dark Mode) -> Button is Moon
-        if (document.body.classList.contains(darkTheme)) {
-            themeButton.textContent = iconTheme // Sun
-        } else {
-            themeButton.textContent = iconDark // Moon
-        }
-
         // We save the theme and the current icon that the user chose
         localStorage.setItem('selected-theme', getCurrentTheme())
-        localStorage.setItem('selected-icon', getCurrentIcon())
     })
 }
 
