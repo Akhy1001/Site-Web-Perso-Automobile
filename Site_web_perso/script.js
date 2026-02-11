@@ -443,3 +443,19 @@ accordionItems.forEach((item) => {
         }
     });
 });
+
+/* =========================================
+   FORM FEEDBACK (URL Params)
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+
+    if (status === 'success') {
+        alert("Votre demande a bien été envoyée ! Nous vous répondrons dans les plus brefs délais.");
+        // Optional: Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    } else if (status === 'error') {
+        alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+    }
+});

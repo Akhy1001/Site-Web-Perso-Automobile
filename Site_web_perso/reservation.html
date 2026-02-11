@@ -119,17 +119,22 @@
                         </div>
                     </div>
 
-                    <form class="reservation__form box-hidden" id="booking-form">
+                    <form class="reservation__form box-hidden" id="booking-form" action="submit_reservation.php"
+                        method="POST">
                         <h4 class="form__title">Confirmer la date</h4>
+
+                        <!-- Hidden fields to pass data -->
+                        <input type="hidden" name="car_model" id="input-car-model">
+
                         <div class="form__group">
                             <label>Date sélectionnée</label>
-                            <input type="text" id="selected-date" readonly class="form__input">
+                            <input type="text" name="date" id="selected-date" readonly class="form__input">
                         </div>
                         <div class="form__group">
                             <label>Email</label>
-                            <input type="email" placeholder="votre@email.com" class="form__input" required>
+                            <input type="email" name="email" placeholder="votre@email.com" class="form__input" required>
                         </div>
-                        <button type="button" class="button button--flex" style="width: 100%; margin-top: 1rem;">
+                        <button type="submit" class="button button--flex" style="width: 100%; margin-top: 1rem;">
                             Confirmer la demande
                         </button>
                     </form>

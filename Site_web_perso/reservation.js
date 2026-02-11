@@ -147,8 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     bookingForm.style.display = 'block';
 
                     // Update input
-                    const formattedDate = `${i} ${monthNames[month]} ${year}`;
+                    const formattedDate = `${i} ${monthNames[month]} ${year}`; // This assumes French format in input
                     selectedDateInput.value = formattedDate;
+
+                    // Populate hidden car model input (from URL or fallback)
+                    const carModelInput = document.getElementById('input-car-model');
+                    if (carModelInput) {
+                        carModelInput.value = carId || 'Inconnu';
+                    }
 
                     // Smooth scroll to form
                     bookingForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

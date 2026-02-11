@@ -511,21 +511,22 @@
                 <div class="contact__content reveal">
                     <h3 class="contact__title">Formulaire</h3>
 
-                    <form action="" class="contact__form">
+                    <form action="submit_contact.php" method="POST" class="contact__form">
                         <div class="contact__form-div">
                             <label class="contact__form-tag">Nom</label>
-                            <input type="text" placeholder="Votre nom" class="contact__form-input" required>
+                            <input type="text" name="name" placeholder="Votre nom" class="contact__form-input" required>
                         </div>
                         <div class="contact__form-div">
                             <label class="contact__form-tag">Email</label>
-                            <input type="email" placeholder="Votre email" class="contact__form-input" required>
+                            <input type="email" name="email" placeholder="Votre email" class="contact__form-input"
+                                required>
                         </div>
                         <div class="contact__form-div contact__form-area">
                             <label class="contact__form-tag">Message</label>
-                            <textarea cols="30" rows="10" placeholder="Je suis intéressé par..."
+                            <textarea name="message" cols="30" rows="10" placeholder="Je suis intéressé par..."
                                 class="contact__form-input" required></textarea>
                         </div>
-                        <button class="button">Envoyer la demande</button>
+                        <button type="submit" class="button">Envoyer la demande</button>
                     </form>
                 </div>
             </div>
