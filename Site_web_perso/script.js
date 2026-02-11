@@ -412,3 +412,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+/* =========================================
+   ACCORDION LOGIC
+   ========================================= */
+const accordionItems = document.querySelectorAll('.accordion__item');
+
+accordionItems.forEach((item) => {
+    const header = item.querySelector('.accordion__header');
+
+    header.addEventListener('click', () => {
+        const isOpen = item.classList.contains('accordion__open');
+
+        // Close all other items (optional, but standard for accordion)
+        accordionItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('accordion__open');
+                otherItem.querySelector('.accordion__content').style.height = '0px';
+            }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+            item.classList.remove('accordion__open');
+            item.querySelector('.accordion__content').style.height = '0px';
+        } else {
+            item.classList.add('accordion__open');
+            const content = item.querySelector('.accordion__content');
+            content.style.height = content.scrollHeight + 'px';
+        }
+    });
+});
