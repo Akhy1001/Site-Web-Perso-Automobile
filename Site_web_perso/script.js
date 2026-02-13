@@ -194,6 +194,8 @@ const sr = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active-reveal');
+        } else {
+            entry.target.classList.remove('active-reveal');
         }
     });
 });
