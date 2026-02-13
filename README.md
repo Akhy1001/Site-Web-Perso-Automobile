@@ -1,5 +1,8 @@
 # Prestige Motors | L'Exception Automobile
 
+![Version](https://img.shields.io/badge/version-1.0.15-blue.svg)
+![Status](https://img.shields.io/badge/status-live-green.svg)
+
 Bienvenue sur le site web de **Prestige Motors**, une concession automobile virtuelle spécialisée dans les véhicules de luxe, de sport et de collection.
 
 ## Description
