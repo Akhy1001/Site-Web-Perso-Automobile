@@ -2388,6 +2388,7 @@ textarea {
         grid-template-columns: 1fr;
     }
 }
+
 /* =========================================
    ACCORDION (Contact Section)
    ========================================= */
@@ -2407,7 +2408,7 @@ textarea {
 
 .accordion__item:hover {
     border-color: var(--first-color);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .accordion__header {
@@ -2427,7 +2428,8 @@ textarea {
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
     color: var(--title-color);
-    flex: 1; /* Take remaining space */
+    flex: 1;
+    /* Take remaining space */
 }
 
 .accordion__arrow {
@@ -2462,17 +2464,130 @@ textarea {
 
 .accordion__open {
     border-color: var(--first-color);
-    background-color: rgba(255, 255, 255, 0.03); /* Subtle highlight */
+    background-color: rgba(255, 255, 255, 0.03);
+    /* Subtle highlight */
 }
 
 /* Light Theme Adjustments for Accordion */
 body.light-theme .accordion__item {
     background-color: #fff;
-    border-color: rgba(0,0,0,0.05);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 body.light-theme .accordion__open {
     border-color: var(--first-color);
-    background-color: rgba(0,0,0,0.02);
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Custom Alert Dialog */
+.alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.alert-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.alert-content {
+    background-color: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: scale(1);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.alert-overlay.hidden .alert-content {
+    transform: scale(0.9);
+}
+
+.alert-header {
+    margin-bottom: 1.5rem;
+}
+
+.alert-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.alert-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: #a0a0a0;
+    line-height: 1.5;
+}
+
+#alert-date-display {
+    color: #fff;
+    font-weight: 500;
+}
+
+.alert-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+/* Alert Buttons - Match Site DA */
+.alert-button {
+    padding: 1rem 1.75rem;
+    /* Match .button padding */
+    border-radius: 50px;
+    /* Square corners */
+    font-family: var(--body-font);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-semi-bold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .3s;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert-cancel {
+    background: transparent;
+    border: 1px solid var(--first-color);
+    color: var(--first-color);
+}
+
+.alert-cancel:hover {
+    background: var(--first-color);
+    color: #000;
+}
+
+.alert-confirm {
+    background: var(--gradient-primary);
+    color: #000;
+}
+
+.alert-confirm:hover {
+    background-color: var(--first-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+    /* Red glow match */
 }

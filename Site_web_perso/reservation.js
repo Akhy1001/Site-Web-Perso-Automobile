@@ -176,4 +176,40 @@ document.addEventListener('DOMContentLoaded', () => {
         currentDate.setMonth(currentDate.getMonth() + 1);
         renderCalendar(currentDate);
     });
+
+    // 3. Alert Dialog Logic
+    const alertOverlay = document.getElementById('reservation-alert');
+    const alertCancelBtn = document.getElementById('alert-cancel');
+    const alertConfirmBtn = document.getElementById('alert-confirm');
+    const alertDateDisplay = document.getElementById('alert-date-display');
+
+    if (bookingForm && alertOverlay) {
+        bookingForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Stop default submission
+
+            const dateValue = selectedDateInput.value;
+            alertDateDisplay.textContent = dateValue;
+
+            // Show Alert
+            alertOverlay.classList.remove('hidden');
+        });
+
+        // Cancel Action
+        alertCancelBtn.addEventListener('click', () => {
+            alertOverlay.classList.add('hidden');
+        });
+
+        // Confirm Action
+        alertConfirmBtn.addEventListener('click', () => {
+            // Actually submit the form
+            bookingForm.submit();
+        });
+
+        // Close on background click
+        alertOverlay.addEventListener('click', (e) => {
+            if (e.target === alertOverlay) {
+                alertOverlay.classList.add('hidden');
+            }
+        });
+    }
 });

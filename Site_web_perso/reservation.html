@@ -150,6 +150,23 @@
         </div>
     </footer>
 
+    <!-- Custom Alert Dialog for Reservation Confirmation -->
+    <div id="reservation-alert" class="alert-overlay hidden">
+        <div class="alert-content">
+            <div class="alert-header">
+                <h3 class="alert-title">Confirmer la réservation</h3>
+                <p class="alert-description">
+                    Êtes-vous sûr de vouloir confirmer cette réservation pour le <span id="alert-date-display"></span> ?
+                    <br>Un email de confirmation vous sera envoyé.
+                </p>
+            </div>
+            <div class="alert-footer">
+                <button id="alert-cancel" class="alert-button alert-cancel">Annuler</button>
+                <button id="alert-confirm" class="alert-button alert-confirm">Confirmer</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
     <script src="reservation.js"></script>
 </body>
