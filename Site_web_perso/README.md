@@ -1,55 +1,36 @@
-# Prestige Motors | L'Exception Automobile
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-![Version](https://img.shields.io/badge/version-1.0.15-blue.svg)
-![Status](https://img.shields.io/badge/status-live-green.svg)
+## Getting Started
 
-Bienvenue sur le site web de **Prestige Motors**, une concession automobile virtuelle spécialisée dans les véhicules de luxe, de sport et de collection.
+First, run the development server:
 
-## Description
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-Ce projet est une vitrine web moderne et élégante pour une concession de voitures haut de gamme. Il présente une collection exclusive de véhicules (Porsche, Ferrari, Lamborghini, etc.) avec un design soigné et des animations fluides.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Fonctionnalités
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-*   **Design Premium** : Une interface utilisateur riche avec des animations soignées (Scroll Reveal).
-*   **Mode Sombre/Clair** : Basculez entre un thème clair et un thème sombre via le bouton dans la barre de navigation. L'icône change dynamiquement (Soleil/Lune).
-*   **Catalogue Interactif** : Une section collection présentant différents modèles de voitures.
-*   **Fiches Produits Dynamiques** : La page `product.html` charge dynamiquement les détails du véhicule sélectionné (Prix, Moteur, Puissance, etc.) via des paramètres URL.
-*   **Responsive Design** : Le site est entièrement adapté aux mobiles, tablettes et ordinateurs.
-*   **Menu Mobile** : Navigation optimisée pour les petits écrans.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Technologies Utilisées
+## Learn More
 
-*   **HTML5** : Structure sémantique et optimisée pour le SEO.
-*   **CSS3** : Variables CSS, Flexbox, Grid, et animations.
-*   **JavaScript (Vanilla)** : Gestion du DOM, du thème, du menu et du chargement dynamique des données produits.
+To learn more about Next.js, take a look at the following resources:
 
-## Installation et Utilisation
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Ce projet ne nécessite aucune installation complexe (pas de Node.js, pas de serveur backend).
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-1.  **Cloner ou télécharger** le dossier du projet.
-2.  **Ouvrir** le fichier `index.html` dans votre navigateur web préféré (Chrome, Firefox, Safari, etc.).
+## Deploy on Vercel
 
-### Structure des fichiers
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-*   `index.html` : Page d'accueil principale.
-*   `product.html` : Page de détail (nécessite un paramètre, ex: `product.html?car=porsche`).
-*   `compare.html` : Page de comparaison de véhicules.
-*   `style.css` : Feuille de style principale.
-*   `script.js` : Logique JavaScript du site.
-*   `assets/` : Dossier contenant les images et autres ressources.
-
-## Modèles Disponibles
-
-Les données des véhicules sont stockées localement dans `script.js`. Voici quelques modèles inclus :
-*   Porsche 911 GT3 RS
-*   Ferrari F8 Tributo
-*   Lamborghini Huracán Evo
-*   McLaren 720S
-*   Aston Martin DBS
-*   Et bien plus...
-
-## Auteur
-
-Site web personnel créé par moi Akhy
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
